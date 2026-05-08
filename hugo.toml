@@ -7,8 +7,6 @@ theme = "hextra"
   cookiebotId = "546123a5-a439-4043-b475-4df2f3821ea0"
 [params.search]
   enable = true #
-[markup.goldmark.renderer]
-  unsafe = true
 
 [markup]
   [markup.goldmark]
