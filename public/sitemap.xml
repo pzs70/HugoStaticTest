@@ -2,26 +2,26 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>http://localhost:1313/docs/alapok/telepites/</loc>
+    <loc>http://localhost:1313/HugoStaticTest/docs/alapok/telepites/</loc>
   </url><url>
-    <loc>http://localhost:1313/blog/automatizalt-blog-uzemkepes/</loc>
+    <loc>http://localhost:1313/HugoStaticTest/blog/automatizalt-blog-uzemkepes/</loc>
     <lastmod>2026-05-08T13:51:40+02:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/blog/</loc>
+    <loc>http://localhost:1313/HugoStaticTest/blog/</loc>
     <lastmod>2026-05-08T13:51:40+02:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/</loc>
+    <loc>http://localhost:1313/HugoStaticTest/</loc>
     <lastmod>2026-05-08T13:51:40+02:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/blog/udvozollek-a-blogon/</loc>
+    <loc>http://localhost:1313/HugoStaticTest/blog/udvozollek-a-blogon/</loc>
     <lastmod>2024-05-08T10:00:00+02:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/docs/alapok/elso-lepesek/</loc>
+    <loc>http://localhost:1313/HugoStaticTest/docs/alapok/elso-lepesek/</loc>
   </url><url>
-    <loc>http://localhost:1313/categories/</loc>
+    <loc>http://localhost:1313/HugoStaticTest/categories/</loc>
   </url><url>
-    <loc>http://localhost:1313/docs/</loc>
+    <loc>http://localhost:1313/HugoStaticTest/docs/</loc>
   </url><url>
-    <loc>http://localhost:1313/tags/</loc>
+    <loc>http://localhost:1313/HugoStaticTest/tags/</loc>
   </url>
 </urlset>

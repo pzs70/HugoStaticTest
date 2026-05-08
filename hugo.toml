@@ -1,6 +1,6 @@
-baseURL = 'https://pzs70.github.io/HugoStaticTest/'
-locale = 'en-us'
-title = 'My New Hugo Project'
+baseURL = "https://pzs70.github.io/HugoStaticTest/"
+languageCode = "hu"
+title = "Saját Oldalam"
 theme = "hextra"
 
 [markup]
