@@ -1,0 +1,39 @@
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Saját Oldalam – Tippek</title>
+    <link>http://localhost:1313/HugoStaticTest/categories/tippek/</link>
+    <description>Recent content in Tippek on Saját Oldalam</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>hu</language>
+    <lastBuildDate>Mon, 17 Aug 2026 21:30:00 +0200</lastBuildDate>
+    
+	  <atom:link href="http://localhost:1313/HugoStaticTest/categories/tippek/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+      
+        
+      
+    
+    
+    <item>
+      <title>Milyen prompt segít egy jó blogbejegyzés elkészítésében?</title>
+      <link>http://localhost:1313/HugoStaticTest/blog/jo-prompt-blogbejegyzeshez/</link>
+      <pubDate>Mon, 17 Aug 2026 21:30:00 +0200</pubDate>
+      
+      <guid>http://localhost:1313/HugoStaticTest/blog/jo-prompt-blogbejegyzeshez/</guid>
+      <description>
+        
+        
+        &lt;p&gt;Egy jó prompt világosan megadja a témát, a célközönséget, a kívánt hangnemet és a terjedelmet. Minél konkrétabb a kérés, annál használhatóbb első változatot kapsz.&lt;/p&gt;
+&lt;p&gt;Például így fogalmazhatsz:&lt;/p&gt;
+&lt;blockquote&gt;
+  &lt;p&gt;Írj egy rövid, barátságos blogbejegyzést kezdő weboldaltulajdonosoknak arról, miért hasznos rendszeresen frissíteni a tartalmat. Legyen 3 rövid bekezdéses, tartalmazzon egy találó címet és egy gyakorlati tanácsot a végén.&lt;/p&gt;
+
+&lt;/blockquote&gt;
+&lt;p&gt;Érdemes azt is jelezni, ha legyen benne kulcsszó, felsorolás, személyes hangvétel vagy cselekvésre ösztönző lezárás. Így a szöveget sokkal kevesebbet kell utólag szerkeszteni.&lt;/p&gt;
+
+      </description>
+    </item>
+    
+  </channel>
+</rss>

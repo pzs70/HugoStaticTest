@@ -1,0 +1,41 @@
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Saját Oldalam – Hugo</title>
+    <link>http://localhost:1313/HugoStaticTest/tags/hugo/</link>
+    <description>Recent content in Hugo on Saját Oldalam</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>hu</language>
+    <lastBuildDate>Mon, 17 Aug 2026 21:15:00 +0200</lastBuildDate>
+    
+	  <atom:link href="http://localhost:1313/HugoStaticTest/tags/hugo/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+      
+        
+      
+    
+    
+    <item>
+      <title>Új mérföldkő a Hugo projektben</title>
+      <link>http://localhost:1313/HugoStaticTest/blog/2026-08-17/</link>
+      <pubDate>Mon, 17 Aug 2026 21:15:00 +0200</pubDate>
+      
+      <guid>http://localhost:1313/HugoStaticTest/blog/2026-08-17/</guid>
+      <description>
+        
+        
+        &lt;p&gt;Köszöntlek az új blogbejegyzésben!&lt;/p&gt;
+&lt;p&gt;Ez a bejegyzés sikeresen elkészült és feltöltésre került a &lt;strong&gt;HugoStaticTest&lt;/strong&gt; projekten belül.&lt;/p&gt;
+&lt;h3&gt;Mi történt legutóbb?&lt;span class=&#34;hx:absolute hx:-mt-20&#34; id=&#34;mi-történt-legutóbb&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#mi-t%c3%b6rt%c3%a9nt-legut%c3%b3bb&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;Beállításra került a GitHub hitelesítés és a Personal Access Token (PAT).&lt;/li&gt;
+&lt;li&gt;A statikus oldal frissítése automatizáltan vagy manuális deploy segítségével megtörtént.&lt;/li&gt;
+&lt;li&gt;Új tartalom került publikálásra.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;Remélhetőleg az oldal build folyamata (pl. GitHub Actions) zökkenőmentesen lefut és megjeleníti a friss tartalmat!&lt;span class=&#34;hx:absolute hx:-mt-20&#34; id=&#34;remélhetőleg-az-oldal-build-folyamata-pl-github-actions-zökkenőmentesen-lefut-és-megjeleníti-a-friss-tartalmat&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#rem%c3%a9lhet%c5%91leg-az-oldal-build-folyamata-pl-github-actions-z%c3%b6kken%c5%91mentesen-lefut-%c3%a9s-megjelen%c3%adti-a-friss-tartalmat&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h2&gt;
+      </description>
+    </item>
+    
+  </channel>
+</rss>

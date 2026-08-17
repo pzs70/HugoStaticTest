@@ -1,12 +1,12 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Saját Oldalam – Dokumentáció</title>
-    <link>http://localhost:1313/HugoStaticTest/docs/</link>
-    <description>Recent content in Dokumentáció on Saját Oldalam</description>
+    <title>Saját Oldalam – AI-901 (Azure AI Fundamentals)</title>
+    <link>http://localhost:1313/HugoStaticTest/docs/ai-901/</link>
+    <description>Recent content in AI-901 (Azure AI Fundamentals) on Saját Oldalam</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>hu</language>
     
-	  <atom:link href="http://localhost:1313/HugoStaticTest/docs/index.xml" rel="self" type="application/rss+xml" />
+	  <atom:link href="http://localhost:1313/HugoStaticTest/docs/ai-901/index.xml" rel="self" type="application/rss+xml" />
     
     
       

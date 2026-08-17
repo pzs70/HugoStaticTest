@@ -5,7 +5,7 @@
     <description>Recent content in Kezdőlap on Saját Oldalam</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>hu</language>
-    <lastBuildDate>Fri, 08 May 2026 13:51:40 +0200</lastBuildDate>
+    <lastBuildDate>Mon, 17 Aug 2026 21:30:00 +0200</lastBuildDate>
     
 	  <atom:link href="http://localhost:1313/HugoStaticTest/index.xml" rel="self" type="application/rss+xml" />
     
@@ -13,6 +13,94 @@
       
       
     
+    
+    <item>
+      <title>Milyen prompt segít egy jó blogbejegyzés elkészítésében?</title>
+      <link>http://localhost:1313/HugoStaticTest/blog/jo-prompt-blogbejegyzeshez/</link>
+      <pubDate>Mon, 17 Aug 2026 21:30:00 +0200</pubDate>
+      
+      <guid>http://localhost:1313/HugoStaticTest/blog/jo-prompt-blogbejegyzeshez/</guid>
+      <description>
+        
+        
+        &lt;p&gt;Egy jó prompt világosan megadja a témát, a célközönséget, a kívánt hangnemet és a terjedelmet. Minél konkrétabb a kérés, annál használhatóbb első változatot kapsz.&lt;/p&gt;
+&lt;p&gt;Például így fogalmazhatsz:&lt;/p&gt;
+&lt;blockquote&gt;
+  &lt;p&gt;Írj egy rövid, barátságos blogbejegyzést kezdő weboldaltulajdonosoknak arról, miért hasznos rendszeresen frissíteni a tartalmat. Legyen 3 rövid bekezdéses, tartalmazzon egy találó címet és egy gyakorlati tanácsot a végén.&lt;/p&gt;
+
+&lt;/blockquote&gt;
+&lt;p&gt;Érdemes azt is jelezni, ha legyen benne kulcsszó, felsorolás, személyes hangvétel vagy cselekvésre ösztönző lezárás. Így a szöveget sokkal kevesebbet kell utólag szerkeszteni.&lt;/p&gt;
+
+      </description>
+    </item>
+    
+    <item>
+      <title>Új mérföldkő a Hugo projektben</title>
+      <link>http://localhost:1313/HugoStaticTest/blog/2026-08-17/</link>
+      <pubDate>Mon, 17 Aug 2026 21:15:00 +0200</pubDate>
+      
+      <guid>http://localhost:1313/HugoStaticTest/blog/2026-08-17/</guid>
+      <description>
+        
+        
+        &lt;p&gt;Köszöntlek az új blogbejegyzésben!&lt;/p&gt;
+&lt;p&gt;Ez a bejegyzés sikeresen elkészült és feltöltésre került a &lt;strong&gt;HugoStaticTest&lt;/strong&gt; projekten belül.&lt;/p&gt;
+&lt;h3&gt;Mi történt legutóbb?&lt;span class=&#34;hx:absolute hx:-mt-20&#34; id=&#34;mi-történt-legutóbb&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#mi-t%c3%b6rt%c3%a9nt-legut%c3%b3bb&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;Beállításra került a GitHub hitelesítés és a Personal Access Token (PAT).&lt;/li&gt;
+&lt;li&gt;A statikus oldal frissítése automatizáltan vagy manuális deploy segítségével megtörtént.&lt;/li&gt;
+&lt;li&gt;Új tartalom került publikálásra.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;Remélhetőleg az oldal build folyamata (pl. GitHub Actions) zökkenőmentesen lefut és megjeleníti a friss tartalmat!&lt;span class=&#34;hx:absolute hx:-mt-20&#34; id=&#34;remélhetőleg-az-oldal-build-folyamata-pl-github-actions-zökkenőmentesen-lefut-és-megjeleníti-a-friss-tartalmat&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#rem%c3%a9lhet%c5%91leg-az-oldal-build-folyamata-pl-github-actions-z%c3%b6kken%c5%91mentesen-lefut-%c3%a9s-megjelen%c3%adti-a-friss-tartalmat&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h2&gt;
+      </description>
+    </item>
+    
+    <item>
+      <title>Blogolás automatizálva: Gemini-CLI és GitHub integráció</title>
+      <link>http://localhost:1313/HugoStaticTest/blog/gemini-cli-automatizacio/</link>
+      <pubDate>Mon, 18 May 2026 13:32:00 +0200</pubDate>
+      
+      <guid>http://localhost:1313/HugoStaticTest/blog/gemini-cli-automatizacio/</guid>
+      <description>
+        
+        
+        &lt;p&gt;Ebben a bejegyzésben egy izgalmas mérföldkőhöz érkeztünk: a mai posztot már teljesen a &lt;strong&gt;Gemini-CLI&lt;/strong&gt; segítségével készítjük el és publikáljuk. Ez a kísérlet megmutatja, hogyan váltható ki a manuális fájlkezelés és Git parancsok sorozata egyetlen intelligens interfésszel.&lt;/p&gt;
+&lt;h3&gt;Miért jó ez az automatizáció?&lt;span class=&#34;hx:absolute hx:-mt-20&#34; id=&#34;miért-jó-ez-az-automatizáció&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#mi%c3%a9rt-j%c3%b3-ez-az-automatiz%c3%a1ci%c3%b3&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;Az AI-alapú CLI eszközök használata több szempontból is forradalmasítja a tartalomgyártást:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;Hatékonyság:&lt;/strong&gt; Nem kell váltogatni a szövegszerkesztő, a terminál és a böngésző között. Egyetlen kontextusban maradhatunk az ötleteléstől a publikálásig.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Kevesebb hibalehetőség:&lt;/strong&gt; Az automatizált folyamat biztosítja, hogy a metaadatok (front matter), a fájlstruktúra és a Git műveletek mindig konzisztensek maradjanak.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Fókusz:&lt;/strong&gt; A technikai részletek (mint a Git push vagy a Hugo generálás) helyett a tartalom lényegére koncentrálhatunk.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;Ez a bejegyzés egy élő példa arra, hogy a modern fejlesztői eszközök és a nagy nyelvi modellek kombinációja hogyan teszi gördülékenyebbé a mindennapi munkánkat.&lt;/p&gt;
+
+      </description>
+    </item>
+    
+    <item>
+      <title>Már a GitHub Pages-en is elérhető az oldal!</title>
+      <link>http://localhost:1313/HugoStaticTest/blog/mar-a-github-pagesen-is-elerheto/</link>
+      <pubDate>Fri, 08 May 2026 15:20:00 +0200</pubDate>
+      
+      <guid>http://localhost:1313/HugoStaticTest/blog/mar-a-github-pagesen-is-elerheto/</guid>
+      <description>
+        
+        
+        &lt;p&gt;Nagy örömmel jelentem, hogy a blogunk túllépett a lokális fejlesztési fázison, és már bárki számára elérhető a &lt;strong&gt;GitHub Pages&lt;/strong&gt; felületén.&lt;/p&gt;
+&lt;h3&gt;Miért jó a GitHub Pages?&lt;span class=&#34;hx:absolute hx:-mt-20&#34; id=&#34;miért-jó-a-github-pages&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#mi%c3%a9rt-j%c3%b3-a-github-pages&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;A GitHub Pages használata számos előnnyel jár egy statikus oldal esetében:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Gyorsaság&lt;/strong&gt;: A globális CDN hálózatnak köszönhetően a látogatók bárhonnan villámgyorsan érik el az oldalt.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Biztonság&lt;/strong&gt;: Mivel csak statikus fájlokat szolgálunk ki, nincsenek sebezhető adatbázisok vagy szerveroldali scriptek.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Ingyenesség&lt;/strong&gt;: Nyílt forráskódú projektekhez és személyes blogokhoz tökéletes és költséghatékony megoldás.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3&gt;A következő lépés: Teljes automatizálás&lt;span class=&#34;hx:absolute hx:-mt-20&#34; id=&#34;a-következő-lépés-teljes-automatizálás&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#a-k%c3%b6vetkez%c5%91-l%c3%a9p%c3%a9s-teljes-automatiz%c3%a1l%c3%a1s&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;A célunk az, hogy a tartalomgyártás folyamata teljesen zökkenőmentes legyen. Terveink szerint a jövőben egyetlen parancssori utasítás vagy bejegyzésírás után a rendszer automatikusan elvégzi a &lt;strong&gt;commit&lt;/strong&gt;, &lt;strong&gt;push&lt;/strong&gt; és &lt;strong&gt;deployment&lt;/strong&gt; folyamatokat. Ez azt jelenti, hogy nekem csak a szövegre kell koncentrálnom, a technikai háttérmunkát – a verziókezeléstől az élesítésig – a gépek végzik el helyettem. Ez a fajta automatizálás minimalizálja a hibalehetőségeket és drasztikusan felgyorsítja a publikálást.&lt;/p&gt;
+&lt;p&gt;Hamarosan jelentkezem a technikai részletekkel is!&lt;/p&gt;
+
+      </description>
+    </item>
     
     <item>
       <title>Az automatizált blog üzemképes!</title>

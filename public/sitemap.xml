@@ -2,26 +2,68 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>http://localhost:1313/HugoStaticTest/docs/alapok/telepites/</loc>
+    <loc>http://localhost:1313/HugoStaticTest/docs/ai-901/</loc>
   </url><url>
-    <loc>http://localhost:1313/HugoStaticTest/blog/automatizalt-blog-uzemkepes/</loc>
-    <lastmod>2026-05-08T13:51:40+02:00</lastmod>
+    <loc>http://localhost:1313/HugoStaticTest/docs/ai-901/ai-901_detailed_study_material/</loc>
+  </url><url>
+    <loc>http://localhost:1313/HugoStaticTest/docs/ai-901/ai-901_general_cheatsheet/</loc>
+  </url><url>
+    <loc>http://localhost:1313/HugoStaticTest/docs/ai-901/ai-901_python_cheatsheet/</loc>
+  </url><url>
+    <loc>http://localhost:1313/HugoStaticTest/tags/ai/</loc>
+    <lastmod>2026-08-17T21:30:00+02:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/HugoStaticTest/blog/</loc>
-    <lastmod>2026-05-08T13:51:40+02:00</lastmod>
+    <lastmod>2026-08-17T21:30:00+02:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/HugoStaticTest/tags/blog%C3%ADr%C3%A1s/</loc>
+    <lastmod>2026-08-17T21:30:00+02:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/HugoStaticTest/categories/</loc>
+    <lastmod>2026-08-17T21:30:00+02:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/HugoStaticTest/</loc>
+    <lastmod>2026-08-17T21:30:00+02:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/HugoStaticTest/blog/jo-prompt-blogbejegyzeshez/</loc>
+    <lastmod>2026-08-17T21:30:00+02:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/HugoStaticTest/tags/prompt/</loc>
+    <lastmod>2026-08-17T21:30:00+02:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/HugoStaticTest/tags/</loc>
+    <lastmod>2026-08-17T21:30:00+02:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/HugoStaticTest/categories/tippek/</loc>
+    <lastmod>2026-08-17T21:30:00+02:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/HugoStaticTest/tags/blog/</loc>
+    <lastmod>2026-08-17T21:15:00+02:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/HugoStaticTest/tags/deploy/</loc>
+    <lastmod>2026-08-17T21:15:00+02:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/HugoStaticTest/categories/fejleszt%C3%A9s/</loc>
+    <lastmod>2026-08-17T21:15:00+02:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/HugoStaticTest/tags/hugo/</loc>
+    <lastmod>2026-08-17T21:15:00+02:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/HugoStaticTest/blog/2026-08-17/</loc>
+    <lastmod>2026-08-17T21:15:00+02:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/HugoStaticTest/blog/gemini-cli-automatizacio/</loc>
+    <lastmod>2026-05-18T13:32:00+02:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/HugoStaticTest/blog/mar-a-github-pagesen-is-elerheto/</loc>
+    <lastmod>2026-05-08T15:20:00+02:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/HugoStaticTest/blog/automatizalt-blog-uzemkepes/</loc>
     <lastmod>2026-05-08T13:51:40+02:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/HugoStaticTest/blog/udvozollek-a-blogon/</loc>
     <lastmod>2024-05-08T10:00:00+02:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/HugoStaticTest/docs/alapok/elso-lepesek/</loc>
-  </url><url>
-    <loc>http://localhost:1313/HugoStaticTest/categories/</loc>
-  </url><url>
     <loc>http://localhost:1313/HugoStaticTest/docs/</loc>
-  </url><url>
-    <loc>http://localhost:1313/HugoStaticTest/tags/</loc>
   </url>
 </urlset>
