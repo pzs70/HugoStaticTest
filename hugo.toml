@@ -15,7 +15,7 @@ theme = "hextra"
 
 [[menu.main]]
   name = "GitHub"
-  url = "https://github.com/felhasznaloneved"
+  url = "https://github.com/pzs70"
   weight = 30
 
 [[menu.main]]
@@ -30,3 +30,6 @@ theme = "hextra"
   url = "/blog/"
   weight = 20
 
+[services]
+  [services.googleAnalytics]
+    ID = "G-GZSNE5S2ZR"
