@@ -4,8 +4,8 @@ USER root
 WORKDIR /src
 COPY . .
 RUN chmod -R 777 /src
-# Itt adjuk meg a relatív baseURL-t:
-RUN hugo --gc --minify -b "/"
+# Itt adjuk meg a baseURL-t:
+RUN hugo --gc --minify -b "https://hugo-website-752782856289.europe-west4.run.app/"
 
 # 2. Fázis: Nginx webszerver
 FROM nginx:alpine
