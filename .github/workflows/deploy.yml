@@ -39,7 +39,7 @@ jobs:
 
       - name: Deploy to Cloud Run
         run: |
-          IMAGE_TAG="europe-west1-docker.pkg.dev/$PROJECT_ID/$REPOSITORY/$SERVICE:${{ github.sha }}"
+          IMAGE_TAG="europe-west4-docker.pkg.dev/$PROJECT_ID/$REPOSITORY/$SERVICE:${{ github.sha }}"
           gcloud run deploy $SERVICE \
             --image $IMAGE_TAG \
             --region $REGION \
