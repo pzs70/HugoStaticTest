@@ -3,10 +3,6 @@ FROM floryn90/hugo:ext-alpine AS builder
 USER root
 WORKDIR /src
 
-# ARG átvétele a docker build parancsból
-ARG HUGO_SERVICES_GOOGLEANALYTICS_ID
-ENV HUGO_SERVICES_GOOGLEANALYTICS_ID=$HUGO_SERVICES_GOOGLEANALYTICS_ID
-
 COPY . .
 RUN chmod -R 777 /src
 # Itt adjuk meg a baseURL-t:
