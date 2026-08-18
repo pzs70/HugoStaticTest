@@ -1,5 +1,14 @@
+{
+    # Megmondja a Caddynek, hogy bízzon meg a Cloud Run / Google Frontend által küldött proxy fejlécekben
+    servers {
+        trusted_proxies static private_ranges
+    }
+}
+
 :8080 {
     root * /usr/share/caddy
     file_server
+
+    # Átirányítás helyett csendben kiszolgálja a mappa index.html-jét, ha hiányzik a perjel
     try_files {path} {path}/index.html {path}/ =404
 }
