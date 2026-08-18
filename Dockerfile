@@ -1,7 +1,9 @@
-# 1. Fázis: Hugo oldal felépítése legfrissebb extended verzióval
+# 1. Fázis: Hugo oldal felépítése
 FROM floryn90/hugo:ext-alpine AS builder
+USER root
 WORKDIR /src
 COPY . .
+RUN chmod -R 777 /src
 RUN hugo --gc --minify
 
 # 2. Fázis: Nginx webszerver a statikus fájlok kiszolgálására
