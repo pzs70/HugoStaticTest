@@ -27,8 +27,8 @@ jobs:
           extended: true
 
       - name: Build with Hugo
-        env:
-          GA_MEASUREMENT_ID: "G-GZSNE5S2ZR"
+        #env:
+        #  GA_MEASUREMENT_ID: "G-GZSNE5S2ZR"
         run: |
           hugo --minify --baseURL "https://pzs70.github.io/HugoStaticTest/"
 
