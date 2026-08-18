@@ -8,6 +8,6 @@ title: Kezdőlap
 </section>
 
 {{< cards >}}
-  {{< card link="docs" title="Dokumentáció" icon="book-open" subtitle="Tananyagok és jegyzetek áttekinthetően" >}}
-  {{< card link="blog" title="Blog" icon="newspaper" subtitle="Újdonságok, ötletek és tapasztalatok" >}}
+  {{< card link="/docs/" title="Dokumentáció" icon="book-open" subtitle="Tananyagok és jegyzetek áttekinthetően" >}}
+  {{< card link="/blog/" title="Blog" icon="newspaper" subtitle="Újdonságok, ötletek és tapasztalatok" >}}
 {{< /cards >}}

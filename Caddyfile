@@ -7,8 +7,15 @@
 
 :8080 {
     root * /usr/share/caddy
-    file_server
 
-    # Átirányítás helyett csendben kiszolgálja a mappa index.html-jét, ha hiányzik a perjel
+    # A könyvtárakat végző perjellel kanonizáljuk. Így a böngésző a relatív
+    # hivatkozásokat (például egy _index.md kártyáját) nem a gyökérből oldja fel.
+    @directoryWithoutSlash {
+        not path */
+        file {path}/index.html
+    }
+    redir @directoryWithoutSlash {path}/ 308
+
+    file_server
     try_files {path} {path}/index.html {path}/ =404
 }
