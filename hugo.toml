@@ -21,13 +21,13 @@ theme = "hextra"
 [[menu.main]]
   name = "Dokumentáció"
   identifier = "docs"
-  url = "docs/"
+  url = "/docs/"
   weight = 10
 
 [[menu.main]]
   name = "Blog"
   identifier = "blog"
-  url = "blog/"
+  url = "/blog/"
   weight = 20
 
 [services]
