@@ -6,7 +6,7 @@ WORKDIR /src
 COPY . .
 RUN chmod -R 777 /src
 # Itt adjuk meg a baseURL-t:
-RUN hugo --gc --minify -b "/"
+RUN hugo --gc --minify -e production -b "/"
 
 # 2. Fázis: Caddy webszerver
 FROM caddy:alpine
