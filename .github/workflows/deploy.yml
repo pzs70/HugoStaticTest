@@ -36,7 +36,9 @@ jobs:
       - name: Build and Push Docker Image
         run: |
           IMAGE_TAG="europe-west4-docker.pkg.dev/$PROJECT_ID/$REPOSITORY/$SERVICE:${{ github.sha }}"
-          docker build -t $IMAGE_TAG .
+          docker build \
+          --build-arg HUGO_SERVICES_GOOGLEANALYTICS_ID="G-0ZJ9QZF4CS" \
+          -t $IMAGE_TAG .
           docker push $IMAGE_TAG
 
       - name: Deploy to Cloud Run
@@ -47,4 +49,3 @@ jobs:
             --region $REGION \
             --platform managed \
             --allow-unauthenticated \
-            --set-env-vars HUGO_SERVICES_GOOGLEANALYTICS_ID="G-0ZJ9QZF4CS"
