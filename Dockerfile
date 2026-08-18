@@ -5,7 +5,7 @@ WORKDIR /src
 COPY . .
 RUN chmod -R 777 /src
 # Itt adjuk meg a baseURL-t:
-RUN hugo --gc --minify -b "/"
+RUN hugo --gc --minify -b "https://pzs70.github.io/HugoStaticTest/"
 
 # 2. Fázis: Caddy webszerver
 FROM caddy:alpine
