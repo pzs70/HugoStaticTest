@@ -1,5 +1,5 @@
 baseURL = "/"
-languageCode = "hu"
+locale = "hu"
 title = "Saját Oldalam"
 theme = "hextra"
 
