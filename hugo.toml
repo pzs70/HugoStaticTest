@@ -30,6 +30,3 @@ theme = "hextra"
   url = "/blog/"
   weight = 20
 
-[services]
-  [services.googleAnalytics]
-    ID = "G-0ZJ9QZF4CS"
