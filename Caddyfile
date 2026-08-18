@@ -1,5 +1,5 @@
 {
-    # Elfogadja a Google Frontendtől érkező HTTPS/Host fejléceket
+    # Megmondja a Caddynek, hogy bízzon meg a Cloud Run / Google Frontend által küldött proxy fejlécekben
     servers {
         trusted_proxies static private_ranges
     }
@@ -7,20 +7,8 @@
 
 :8080 {
     root * /usr/share/caddy
+    file_server
 
-    # Megakadályozza, hogy a Caddy 301/302-es átirányítást küldjön, ha hiányzik a záró perjel
-    file_server {
-        canonical_uris false
-    }
-
-    # Ha a megadott útvonal egy mappa (pl. /blog), csendben a benne lévő index.html-re irányítja a kérést
-    @dir {
-        file {
-            try_files {path}/index.html
-        }
-    }
-    rewrite @dir {path}/index.html
-
-    # Egyéb esetekben a normál fájlkiszolgálás
-    try_files {path} {path}/ =404
+    # Átirányítás helyett csendben kiszolgálja a mappa index.html-jét, ha hiányzik a perjel
+    try_files {path} {path}/index.html {path}/ =404
 }
