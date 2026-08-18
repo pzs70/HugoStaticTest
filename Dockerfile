@@ -7,10 +7,10 @@ RUN chmod -R 777 /src
 # Itt adjuk meg a baseURL-t:
 RUN hugo --gc --minify -b "https://hugo-website-752782856289.europe-west4.run.app/"
 
-# 2. Fázis: Nginx webszerver
-FROM nginx:alpine
-COPY --from=builder /src/public /usr/share/nginx/html
-COPY --from=builder /src/nginx.conf /etc/nginx/conf.d/default.conf
+# 2. Fázis: Caddy webszerver
+FROM caddy:alpine
+COPY --from=builder /src/public /usr/share/caddy
+COPY --from=builder /src/Caddyfile /etc/caddy/Caddyfile
 
 EXPOSE 8080
-CMD ["nginx", "-g", "daemon off;"]
+CMD ["caddy", "run", "--config", "/etc/caddy/Caddyfile", "--adapter", "caddyfile"]
