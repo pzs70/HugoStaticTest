@@ -46,4 +46,5 @@ jobs:
             --image $IMAGE_TAG \
             --region $REGION \
             --platform managed \
-            --allow-unauthenticated
+            --allow-unauthenticated \
+            --set-env-vars HUGO_SERVICES_GOOGLEANALYTICS_ID="G-0ZJ9QZF4CS"
