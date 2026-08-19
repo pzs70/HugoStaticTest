@@ -56,7 +56,7 @@ jobs:
           python - << 'EOF'
           import os
           import re
-          from datetime import datetime
+          from datetime import datetime, timezone, timedelta
           from google import genai
           from google.genai import types
 
@@ -69,6 +69,11 @@ jobs:
 
           client = genai.Client(api_key=api_key)
 
+          # Mai pontos dátum ISO formátumban (pl. 2026-08-19T15:00:00+02:00)
+          tz_hu = timezone(timedelta(hours=2))
+          current_now = datetime.now(tz_hu)
+          iso_date = current_now.strftime('%Y-%m-%dT%H:%M:%S+02:00')
+
           system_instruction = """
           Te egy profi Hugo blogbejegyzés-író vagy. A feladatod, hogy a megadott téma alapján generálj egy teljes, minőségi Markdown cikk-fájlt.
           A kimeneted KIZÁRÓLAG érvényes Markdown kódot tartalmazzon, az elején érvényes Hugo YAML Front Matter fejléccel!
@@ -76,7 +81,6 @@ jobs:
           Példa a fejlécre:
           ---
           title: "Cím"
-          date: YYYY-MM-DDTHH:MM:SS+02:00
           draft: false
           categories: ["Blog"]
           ---
@@ -84,33 +88,43 @@ jobs:
 
           user_prompt = f"Cím/Téma: {prompt_title}\nRészletes utasítások: {prompt_body}"
 
-          response = client.models.generate_content(
+          chat = client.chats.create(
               model='gemini-2.5-flash',
-              contents=user_prompt,
               config=types.GenerateContentConfig(
                   system_instruction=system_instruction,
                   temperature=0.7,
-              ),
+              )
           )
-
+          response = chat.send_message(user_prompt)
           content = response.text
 
-          # Tisztítsuk meg a Markdown kódot, ha a Gemini véletlenül ```markdown keretbe tenné
+          # Tisztítás
           content = re.sub(r'^```markdown\s*', '', content)
           content = re.sub(r'^```\s*', '', content)
           content = re.sub(r'\s*```$', '', content)
 
-          # Ékezetmentes és tisztított fájlnév generálása
-          slug = re.sub(r'[^a-zA-Z0-9-]', '', prompt_title.lower().replace(' ', '-'))
-          filename = f"content/blog/{datetime.now().strftime('%Y-%m-%d')}-{slug}.md"
+          # Dinamikus dátum beszúrása a Front Matter-be
+          if "date:" in content:
+              content = re.sub(r'date:.*', f'date: {iso_date}', content)
+          else:
+              content = re.sub(r'(---)', f'\\1\ndate: {iso_date}', content, count=1)
 
-          os.makedirs("content/posts", exist_ok=True)
+          # Ékezetmentesítés és tisztítás a fájlnévhez
+          slug = prompt_title.lower()
+          for a, b in [('á','a'),('é','e'),('í','i'),('ó','o'),('ö','o'),('ő','o'),('ú','u'),('ü','u'),('ű','u')]:
+              slug = slug.replace(a, b)
+          slug = re.sub(r'[^a-zA-Z0-9-]', '', slug.replace(' ', '-'))
+          
+          output_dir = "content/blog"
+          filename = f"{output_dir}/{current_now.strftime('%Y-%m-%d')}-{slug}.md"
+
+          os.makedirs(output_dir, exist_ok=True)
           with open(filename, "w", encoding="utf-8") as f:
               f.write(content)
 
-          print(f"Fájl sikeresen létrehozva: {filename}")
+          print(f"Fájl sikeresen létrehozva a mai dátummal ({iso_date}): {filename}")
           EOF
-
+          
       # 4. COMMIT ÉS PUSH A MAIN BRANCH-BE
       - name: Commit and push changes
         run: |
