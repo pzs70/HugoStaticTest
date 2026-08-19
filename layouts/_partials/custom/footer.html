@@ -1,5 +1,5 @@
 <!-- Cookiebot üresen hagyva, mert külső szolgáltatót használunk -->
-{{ if eq .Section "blog" }}
+{{ if eq .context.Section "blog" }}
   {{ $blogFilter := resources.Get "js/blog-filter.js" | minify | fingerprint }}
   <script src="{{ $blogFilter.RelPermalink }}" integrity="{{ $blogFilter.Data.Integrity }}" defer></script>
 {{ end }}

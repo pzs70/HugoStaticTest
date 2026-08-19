@@ -10,13 +10,6 @@
         <div class="content blog-intro">{{ .Content }}</div>
 
         <div class="blog-toolbar">
-          <label class="blog-search">
-            <span class="blog-filter-label">Keresés</span>
-            <span class="blog-search-field">
-              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m21 21-4.35-4.35m1.35-5.4a6.75 6.75 0 1 1-13.5 0 6.75 6.75 0 0 1 13.5 0Z" /></svg>
-              <input type="search" data-blog-search placeholder="Cím vagy szöveg keresése…" autocomplete="off" />
-            </span>
-          </label>
           <label class="blog-sort">
             <span class="blog-filter-label">Sorrend</span>
             <select data-blog-sort>
@@ -28,14 +21,6 @@
         </div>
 
         <div class="blog-filter-layout">
-          <aside class="blog-filter-column blog-date-filter" aria-label="Szűrés dátum szerint">
-            <h2>Dátum</h2>
-            <button class="blog-filter-option is-active" type="button" data-blog-year="all">Minden év <span>{{ len $pages }}</span></button>
-            {{ range $pages.GroupByDate "2006" "desc" }}
-              <button class="blog-filter-option" type="button" data-blog-year="{{ .Key }}">{{ .Key }} <span>{{ len .Pages }}</span></button>
-            {{ end }}
-          </aside>
-
           <section class="blog-results" aria-live="polite">
             <div class="blog-results-heading">
               <p><strong data-blog-count>{{ len $pages }}</strong> bejegyzés</p>
@@ -45,7 +30,7 @@
               {{ range $pages }}
                 {{- $categories := .Params.categories | default (slice) -}}
                 {{- $tags := .Params.tags | default (slice) -}}
-                <article class="blog-post-card" data-blog-post data-year="{{ .Date.Format "2006" }}" data-date="{{ .Date.Unix }}" data-taxonomies="{{ delimit (apply $categories "urlize" ".") "," }},{{ delimit (apply $tags "urlize" ".") "," }}" data-search-text="{{ printf "%s %s %s %s" .Title .Summary .Content (delimit $categories " ") | plainify | lower | htmlEscape }}">
+                <article class="blog-post-card" data-blog-post data-year="{{ .Date.Format "2006" }}" data-date="{{ .Date.Unix }}" data-taxonomies="{{ delimit (apply $categories "urlize" ".") "," }},{{ delimit (apply $tags "urlize" ".") "," }}">
                   <p class="blog-post-date"><time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "2006.01.02." }}</time></p>
                   <h2><a href="{{ .RelPermalink }}">{{ .Title }}</a></h2>
                   {{ with .Params.description }}<p class="blog-post-description">{{ . }}</p>{{ else }}<p class="blog-post-description">{{ .Summary | plainify | truncate 180 }}</p>{{ end }}
@@ -60,6 +45,11 @@
           </section>
 
           <aside class="blog-filter-column blog-taxonomy-filter" aria-label="Szűrés kategória és címke szerint">
+            <h2>Dátum</h2>
+            <button class="blog-filter-option is-active" type="button" data-blog-year="all">Minden év <span>{{ len $pages }}</span></button>
+            {{ range $pages.GroupByDate "2006" "desc" }}
+              <button class="blog-filter-option" type="button" data-blog-year="{{ .Key }}">{{ .Key }} <span>{{ len .Pages }}</span></button>
+            {{ end }}
             <h2>Kategóriák</h2>
             {{ range site.Taxonomies.categories.ByCount }}
               <button class="blog-filter-option" type="button" data-blog-filter="{{ urlize .Name }}" data-blog-filter-type="category">{{ .Name }} <span>{{ .Count }}</span></button>

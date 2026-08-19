@@ -121,7 +121,7 @@ html.dark .hextra-cards > a:hover {
 
 .blog-toolbar {
   display: grid;
-  grid-template-columns: minmax(0, 1fr) auto auto;
+  grid-template-columns: minmax(0, 1fr) auto;
   align-items: end;
   gap: 0.75rem;
   margin: 1.5rem 0;
@@ -205,7 +205,7 @@ html.dark .hextra-cards > a:hover {
 
 .blog-filter-layout {
   display: grid;
-  grid-template-columns: minmax(8rem, 11rem) minmax(0, 1fr) minmax(9rem, 13rem);
+  grid-template-columns: minmax(0, 1fr) minmax(9rem, 13rem);
   gap: clamp(1.25rem, 3vw, 2.5rem);
   align-items: start;
 }
@@ -362,10 +362,6 @@ html.dark .blog-results-heading {
   .blog-filter-layout {
     grid-template-columns: minmax(0, 1fr) minmax(10rem, 14rem);
   }
-
-  .blog-date-filter {
-    display: none;
-  }
 }
 
 @media (max-width: 640px) {
@@ -394,12 +390,8 @@ html.dark .blog-results-heading {
     background: rgb(255 255 255 / 0.55);
   }
 
-  .blog-date-filter {
-    order: -1;
-  }
-
   .blog-taxonomy-filter {
-    order: 1;
+    order: -1;
   }
 
   .blog-results {
@@ -416,8 +408,7 @@ html.dark .blog-results-heading {
     text-align: left;
   }
 
-  html.dark .blog-taxonomy-filter,
-  html.dark .blog-date-filter {
+  html.dark .blog-taxonomy-filter {
     background: rgb(30 41 59 / 0.5);
   }
 }
