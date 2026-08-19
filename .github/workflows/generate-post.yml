@@ -42,7 +42,7 @@ jobs:
           python-version: '3.x'
 
       - name: Install dependencies
-        run: pip install requests
+        run: pip install google-genai
 
       # 3. CIKK GENERÁLÁSA GEMINI API-VAL
       - name: Generate Post with Gemini API
@@ -53,14 +53,19 @@ jobs:
         run: |
           python - << 'EOF'
           import os
-          import json
           import re
-          import requests
           from datetime import datetime
+          from google import genai
+          from google.genai import types
 
           prompt_title = os.environ.get("ISSUE_TITLE", "").replace("post:", "").strip()
           prompt_body = os.environ.get("ISSUE_BODY", "")
           api_key = os.environ.get("GEMINI_API_KEY")
+
+          if not api_key:
+              raise ValueError("Hiányzik a GEMINI_API_KEY környezeti változó!")
+
+          client = genai.Client(api_key=api_key)
 
           system_instruction = """
           Te egy profi Hugo blogbejegyzés-író vagy. A feladatod, hogy a megadott téma alapján generálj egy teljes, minőségi Markdown cikk-fájlt.
@@ -77,33 +82,16 @@ jobs:
 
           user_prompt = f"Cím/Téma: {prompt_title}\nRészletes utasítások: {prompt_body}"
 
-          # Gemini API REST végpont (gemini-1.5-flash modell)
-          url = f"https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key={api_key}"
+          response = client.models.generate_content(
+              model='gemini-2.5-flash',
+              contents=user_prompt,
+              config=types.GenerateContentConfig(
+                  system_instruction=system_instruction,
+                  temperature=0.7,
+              ),
+          )
 
-          payload = {
-              "system_instruction": {
-                  "parts": [{"text": system_instruction}]
-              },
-              "contents": [
-                  {
-                      "parts": [{"text": user_prompt}]
-                  }
-              ],
-              "generationConfig": {
-                  "temperature": 0.7
-              }
-          }
-
-          headers = {"Content-Type": "application/json"}
-
-          response = requests.post(url, headers=headers, json=payload)
-          result = response.json()
-
-          try:
-              content = result['candidates'][0]['content']['parts'][0]['text']
-          except KeyError:
-              print("Hiba történt a Gemini API válaszának feldolgozásakor:", result)
-              raise
+          content = response.text
 
           # Tisztítsuk meg a Markdown kódot, ha a Gemini véletlenül ```markdown keretbe tenné
           content = re.sub(r'^```markdown\s*', '', content)
@@ -114,7 +102,7 @@ jobs:
           slug = re.sub(r'[^a-zA-Z0-9-]', '', prompt_title.lower().replace(' ', '-'))
           filename = f"content/posts/{datetime.now().strftime('%Y-%m-%d')}-{slug}.md"
 
-          os.makedirs("content/posts", True)
+          os.makedirs("content/posts", exist_ok=True)
           with open(filename, "w", encoding="utf-8") as f:
               f.write(content)
 
