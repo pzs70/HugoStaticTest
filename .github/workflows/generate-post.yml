@@ -140,3 +140,5 @@ jobs:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           gh issue close ${{ github.event.issue.number }} --comment "A cikk sikeresen elkészült a Gemini API segítségével és publikálásra került!"
+
+          
