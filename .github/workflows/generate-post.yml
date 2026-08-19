@@ -100,7 +100,7 @@ jobs:
 
           # Ékezetmentes és tisztított fájlnév generálása
           slug = re.sub(r'[^a-zA-Z0-9-]', '', prompt_title.lower().replace(' ', '-'))
-          filename = f"content/posts/{datetime.now().strftime('%Y-%m-%d')}-{slug}.md"
+          filename = f"content/blog/{datetime.now().strftime('%Y-%m-%d')}-{slug}.md"
 
           os.makedirs("content/posts", exist_ok=True)
           with open(filename, "w", encoding="utf-8") as f:
