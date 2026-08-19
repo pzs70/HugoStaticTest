@@ -17,7 +17,9 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
-
+        with:
+          token: ${{ secrets.ADMIN_PAT }}
+          
       # 2. ENGEDÉLYEZÉSI ELLENŐRZÉS (Jogosultság szűrése)
       - name: Check user authorization
         env:
@@ -117,7 +119,7 @@ jobs:
           git add content/blog/
           git commit -m "feat(blog): auto-generated post via Gemini (Issue #${{ github.event.issue.number }})"
           git push origin main
-
+          
       # 5. ISSUE BEZÁRÁSA
       - name: Close Issue
         env:
