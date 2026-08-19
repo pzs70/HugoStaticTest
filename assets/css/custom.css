@@ -1,13 +1,41 @@
 /* Finom, projekt-szintű arculati kiegészítések. */
 :root {
-  --brand-start: #7c3aed;
-  --brand-end: #db2777;
+  --brand-start: #4f46e5;
+  --brand-end: #0f766e;
+  --brand-accent: #f97316;
+  --surface-tint: #f7f8fc;
+  --line-tint: rgb(79 70 229 / 0.16);
+  --text-link: #4338ca;
 }
 
 body {
+  background-color: var(--surface-tint);
   background-image:
-    radial-gradient(circle at 8% 0%, rgb(124 58 237 / 0.08), transparent 26rem),
-    radial-gradient(circle at 92% 16%, rgb(219 39 119 / 0.07), transparent 23rem);
+    radial-gradient(circle at 8% 0%, rgb(79 70 229 / 0.08), transparent 26rem),
+    radial-gradient(circle at 92% 16%, rgb(15 118 110 / 0.07), transparent 23rem);
+}
+
+/* A navigáció finom kerete segít elválasztani a tartalomtól. */
+.hextra-nav-container-blur {
+  border-bottom: 1px solid var(--line-tint);
+}
+
+/* A szöveges linkek kapjanak egy visszafogott, de jól látható színt. */
+.content a:not(.hextra-card),
+.prose a {
+  color: var(--text-link);
+  text-decoration-color: rgb(67 56 202 / 0.3);
+  text-underline-offset: 0.18em;
+}
+
+.content a:not(.hextra-card):hover,
+.prose a:hover {
+  color: var(--brand-accent);
+}
+
+::selection {
+  color: white;
+  background: var(--brand-start);
 }
 
 .home-hero {
@@ -19,8 +47,10 @@ body {
   border: 1px solid rgb(255 255 255 / 0.25);
   border-radius: 1.5rem;
   color: white;
-  background: linear-gradient(135deg, var(--brand-start), var(--brand-end));
-  box-shadow: 0 1.5rem 3.5rem rgb(124 58 237 / 0.22);
+  background:
+    radial-gradient(circle at 90% 0%, rgb(255 255 255 / 0.18), transparent 14rem),
+    linear-gradient(135deg, var(--brand-start), var(--brand-end));
+  box-shadow: 0 1.5rem 3.5rem rgb(15 118 110 / 0.18);
 }
 
 .home-hero::after {
@@ -60,8 +90,29 @@ body {
 
 .hextra-cards > a:hover {
   transform: translateY(-4px);
-  border-color: rgb(124 58 237 / 0.45);
+  border-color: rgb(79 70 229 / 0.45);
   box-shadow: 0 1rem 2.5rem rgb(15 23 42 / 0.12);
+}
+
+.hextra-cards > a:nth-child(2) svg {
+  color: var(--brand-accent);
+}
+
+html.dark body {
+  background-color: #111827;
+  background-image:
+    radial-gradient(circle at 8% 0%, rgb(99 102 241 / 0.14), transparent 26rem),
+    radial-gradient(circle at 92% 16%, rgb(20 184 166 / 0.1), transparent 23rem);
+}
+
+html.dark {
+  --line-tint: rgb(129 140 248 / 0.22);
+  --text-link: #a5b4fc;
+}
+
+html.dark .hextra-cards > a:hover {
+  border-color: rgb(129 140 248 / 0.5);
+  box-shadow: 0 1rem 2.5rem rgb(0 0 0 / 0.28);
 }
 
 @media (prefers-reduced-motion: reduce) {
