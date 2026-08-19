@@ -1,4 +1,5 @@
 baseURL = "/"
+relativeURLs = true
 locale = "hu"
 title = "Saját Oldalam"
 theme = "hextra"
