@@ -28,7 +28,7 @@ jobs:
 
       - name: Build with Hugo
         run: |
-          hugo --minify --baseURL "https://pzs70.github.io/HugoStaticTest/"
+          hugo --minify --baseURL "https://pzs70.github.io/"
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
