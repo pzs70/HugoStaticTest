@@ -1,0 +1,140 @@
+name: Generate Post from Issue Prompt (Gemini API)
+
+on:
+  issues:
+    types: [opened]
+
+permissions:
+  contents: write
+  issues: write
+
+jobs:
+  generate:
+    # 1. Csak akkor fut le, ha a cím "post:" prefixszel kezdődik
+    if: startsWith(github.event.issue.title, 'post:')
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      # 2. ENGEDÉLYEZÉSI ELLENŐRZÉS (Jogosultság szűrése)
+      - name: Check user authorization
+        env:
+          AUTHOR: ${{ github.actor }}
+          # Cseréld ki a saját GitHub felhasználónevedre (vagy vesszővel elválasztva több névre)
+          ALLOWED_USERS: "pzs70"
+        run: |
+          echo "Issue-t nyitotta: $AUTHOR"
+          
+          # Ellenőrzés: benne van-e a felhasználó a megengedett listában
+          if [[ " $ALLOWED_USERS " =~ " $AUTHOR " ]]; then
+            echo "A felhasználó jogosult a futtatásra."
+          else
+            echo "HIBA: $AUTHOR nem jogosult az automatikus cikkgenerálásra!"
+            gh issue comment ${{ github.event.issue.number }} --body "A cikkgenerálás megszakadt: Nincs jogosultságod a funkció használatához."
+            exit 1
+          fi
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.x'
+
+      - name: Install dependencies
+        run: pip install requests
+
+      # 3. CIKK GENERÁLÁSA GEMINI API-VAL
+      - name: Generate Post with Gemini API
+        env:
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+          ISSUE_TITLE: ${{ github.event.issue.title }}
+          ISSUE_BODY: ${{ github.event.issue.body }}
+        run: |
+          python - << 'EOF'
+          import os
+          import json
+          import re
+          import requests
+          from datetime import datetime
+
+          prompt_title = os.environ.get("ISSUE_TITLE", "").replace("post:", "").strip()
+          prompt_body = os.environ.get("ISSUE_BODY", "")
+          api_key = os.environ.get("GEMINI_API_KEY")
+
+          system_instruction = """
+          Te egy profi Hugo blogbejegyzés-író vagy. A feladatod, hogy a megadott téma alapján generálj egy teljes, minőségi Markdown cikk-fájlt.
+          A kimeneted KIZÁRÓLAG érvényes Markdown kódot tartalmazzon, az elején érvényes Hugo YAML Front Matter fejléccel!
+          Ne tegyél semmilyen egyéb felvezető vagy lezáró szöveget a válaszba, csak magát a Markdown kódot.
+          Példa a fejlécre:
+          ---
+          title: "Cím"
+          date: YYYY-MM-DDTHH:MM:SS+02:00
+          draft: false
+          categories: ["Blog"]
+          ---
+          """
+
+          user_prompt = f"Cím/Téma: {prompt_title}\nRészletes utasítások: {prompt_body}"
+
+          # Gemini API v1beta REST végpont (gemini-1.5-flash modell)
+          url = f"https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key={api_key}"
+
+          payload = {
+              "system_instruction": {
+                  "parts": [{"text": system_instruction}]
+              },
+              "contents": [
+                  {
+                      "parts": [{"text": user_prompt}]
+                  }
+              ],
+              "generationConfig": {
+                  "temperature": 0.7
+              }
+          }
+
+          headers = {"Content-Type": "application/json"}
+
+          response = requests.post(url, headers=headers, json=payload)
+          result = response.json()
+
+          try:
+              content = result['candidates'][0]['content']['parts'][0]['text']
+          except KeyError:
+              print("Hiba történt a Gemini API válaszának feldolgozásakor:", result)
+              raise
+
+          # Tisztítsuk meg a Markdown kódot, ha a Gemini véletlenül ```markdown keretbe tenné
+          content = re.sub(r'^```markdown\s*', '', content)
+          content = re.sub(r'^```\s*', '', content)
+          content = re.sub(r'\s*```$', '', content)
+
+          # Ékezetmentes és tisztított fájlnév generálása
+          slug = re.sub(r'[^a-zA-Z0-9-]', '', prompt_title.lower().replace(' ', '-'))
+          filename = f"content/posts/{datetime.now().strftime('%Y-%m-%d')}-{slug}.md"
+
+          os.makedirs("content/posts", exist_ok=True)
+          with open(filename, "w", encoding="utf-8") as f:
+              f.write(content)
+
+          print(f"Fájl sikeresen létrehozva: {filename}")
+          EOF
+
+      # 4. COMMIT ÉS PUSH A MAIN BRANCH-BE
+      - name: Commit and push changes
+        run: |
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+          git add content/posts/
+          git commit -m "feat(blog): auto-generated post via Gemini (Issue #${{ github.event.issue.number }})"
+          git push origin main
+
+      # 5. ISSUE BEZÁRÁSA
+      - name: Close Issue
+        run: |
+          gh issue close ${{ github.event.issue.number }} --comment "A cikk sikeresen elkészült a Gemini API segítségével és publikálásra került!"
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
