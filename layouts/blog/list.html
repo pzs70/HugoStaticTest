@@ -9,17 +9,6 @@
         {{ if .Title }}<h1 class="hx:mt-2 hx:text-4xl hx:font-bold hx:tracking-tight hx:text-slate-900 hx:dark:text-slate-100">{{ .Title }}</h1>{{ end }}
         <div class="content blog-intro">{{ .Content }}</div>
 
-        <div class="blog-toolbar">
-          <label class="blog-sort">
-            <span class="blog-filter-label">Sorrend</span>
-            <select data-blog-sort>
-              <option value="newest">Legújabb elöl</option>
-              <option value="oldest">Legrégebbi elöl</option>
-            </select>
-          </label>
-          <button class="blog-reset" type="button" data-blog-reset>Szűrők törlése</button>
-        </div>
-
         <div class="blog-filter-layout">
           <section class="blog-results" aria-live="polite">
             <div class="blog-results-heading">
@@ -44,20 +33,33 @@
             <p class="blog-empty-state" data-blog-empty hidden>Nincs a szűrésnek megfelelő bejegyzés.</p>
           </section>
 
-          <aside class="blog-filter-column blog-taxonomy-filter" aria-label="Szűrés kategória és címke szerint">
-            <h2>Dátum</h2>
-            <button class="blog-filter-option is-active" type="button" data-blog-year="all">Minden év <span>{{ len $pages }}</span></button>
-            {{ range $pages.GroupByDate "2006" "desc" }}
-              <button class="blog-filter-option" type="button" data-blog-year="{{ .Key }}">{{ .Key }} <span>{{ len .Pages }}</span></button>
-            {{ end }}
-            <h2>Kategóriák</h2>
-            {{ range site.Taxonomies.categories.ByCount }}
-              <button class="blog-filter-option" type="button" data-blog-filter="{{ urlize .Name }}" data-blog-filter-type="category">{{ .Name }} <span>{{ .Count }}</span></button>
-            {{ end }}
-            <h2 class="blog-filter-subheading">Címkék</h2>
-            {{ range site.Taxonomies.tags.ByCount }}
-              <button class="blog-filter-option" type="button" data-blog-filter="{{ urlize .Name }}" data-blog-filter-type="tag">{{ .Name }} <span>{{ .Count }}</span></button>
-            {{ end }}
+          <aside class="blog-filter-column blog-taxonomy-filter" aria-label="Blog szűrők">
+            <button class="blog-reset" type="button" data-blog-reset>Szűrők törlése</button>
+            <details class="blog-filter-group">
+              <summary>Dátum <span>{{ len $pages }}</span></summary>
+              <div class="blog-filter-options">
+                <button class="blog-filter-option is-active" type="button" data-blog-year="all">Minden év <span>{{ len $pages }}</span></button>
+                {{ range $pages.GroupByDate "2006" "desc" }}
+                  <button class="blog-filter-option" type="button" data-blog-year="{{ .Key }}">{{ .Key }} <span>{{ len .Pages }}</span></button>
+                {{ end }}
+              </div>
+            </details>
+            <details class="blog-filter-group">
+              <summary>Kategóriák <span>{{ len site.Taxonomies.categories }}</span></summary>
+              <div class="blog-filter-options">
+                {{ range site.Taxonomies.categories.ByCount }}
+                  <button class="blog-filter-option" type="button" data-blog-filter="{{ urlize .Name }}" data-blog-filter-type="category">{{ .Name }} <span>{{ .Count }}</span></button>
+                {{ end }}
+              </div>
+            </details>
+            <details class="blog-filter-group">
+              <summary>Címkék <span>{{ len site.Taxonomies.tags }}</span></summary>
+              <div class="blog-filter-options">
+                {{ range site.Taxonomies.tags.ByCount }}
+                  <button class="blog-filter-option" type="button" data-blog-filter="{{ urlize .Name }}" data-blog-filter-type="tag">{{ .Name }} <span>{{ .Count }}</span></button>
+                {{ end }}
+              </div>
+            </details>
           </aside>
         </div>
       </main>

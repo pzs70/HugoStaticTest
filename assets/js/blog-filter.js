@@ -2,7 +2,6 @@
   const posts = [...document.querySelectorAll("[data-blog-post]")];
   if (!posts.length) return;
 
-  const sort = document.querySelector("[data-blog-sort]");
   const count = document.querySelector("[data-blog-count]");
   const empty = document.querySelector("[data-blog-empty]");
   const active = document.querySelector("[data-blog-active-filter]");
@@ -10,8 +9,7 @@
   let taxonomy = "";
 
   const applyFilters = () => {
-    const order = sort?.value === "oldest" ? 1 : -1;
-    posts.sort((a, b) => (Number(b.dataset.date) - Number(a.dataset.date)) * order);
+    posts.sort((a, b) => Number(b.dataset.date) - Number(a.dataset.date));
     posts.forEach((post) => post.parentElement.appendChild(post));
 
     let visible = 0;
@@ -41,11 +39,9 @@
     applyFilters();
   }));
 
-  sort?.addEventListener("change", applyFilters);
   document.querySelector("[data-blog-reset]")?.addEventListener("click", () => {
     year = "all";
     taxonomy = "";
-    if (sort) sort.value = "newest";
     document.querySelectorAll("[data-blog-year]").forEach((item) => item.classList.toggle("is-active", item.dataset.blogYear === "all"));
     document.querySelectorAll("[data-blog-filter]").forEach((item) => item.classList.remove("is-active"));
     applyFilters();
